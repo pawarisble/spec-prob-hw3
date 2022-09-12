@@ -63,7 +63,10 @@ class MainController < ApplicationController
         @maxSub = s.name
       end
     end
-
+    if(@maxSub == "" && @allSubject.length()== 0)
+      @sumScore = "ไม่มีคะแนนด้วยจ้า"
+      @maxSub = "ไม่มีข้อมูลวิชาใดๆ"
+    end
 
   end
 
