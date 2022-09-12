@@ -1,0 +1,17 @@
+<%= form_with url: "/main/test3", method: :post,data:{turbo:false} do |form| %>
+    <% if(!@emptyLine.nil?) %>
+        <%= form.label :query, "ระเบิดเวลา!!!" %>
+        <br>
+        <%= form.label :query, " แถวที่ระเบิด  " + @emptyLine.to_s%>
+        <br>
+    <% end %>
+    <% (1..@amount).each do |i|%>
+        <%= form.label :query, "SUBJECT" %>
+        <%= form.text_field :subArray, name:"subArray[]"%>
+        <%= form.label :query, "SCORE" %>
+        <%= form.number_field :scoreArray, name:"scoreArray[]" %>
+        <br>
+    <% end %>
+    
+    <%= form.submit "Submit" %>
+<% end %>

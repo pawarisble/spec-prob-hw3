@@ -1,0 +1,11 @@
+
+<%= form_with url: "/main/test", method: :post,data:{turbo:false} do |form| %>
+    <%= form.label :query, "จำนวนวิชาทั้งหมด" %>
+    <br>
+    <%= form.select :amount, [1,2,3,4,5,6,7,8,9,10] %>
+    <br>
+    <%= form.submit "Submit" %>
+
+  <% end %>
+  <br>
+  <%= link_to 'Score List', "/score/list" %>

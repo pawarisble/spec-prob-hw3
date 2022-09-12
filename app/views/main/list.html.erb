@@ -1,0 +1,25 @@
+<style>
+table,th,td {
+    border:2px solid black
+}
+</style>
+
+
+<table>
+    <th>Subject</th>
+    <th>Score</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <% @allSubject.each do |s| %>
+        <tr>
+            <td><%= s.name %></td>
+            <td><%= s.score %></td>
+            <td><%= link_to 'Edit', "/main/edit?id="+ s.id.to_s  %></td>
+            <td><%= link_to 'Delete', "/main/delete?id="+ s.id.to_s %></td>
+        </tr>
+    <%end%>
+
+
+</table>
+<br>
+<%= link_to 'Return to main', "/" %>

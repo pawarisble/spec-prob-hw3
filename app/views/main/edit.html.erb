@@ -1,0 +1,16 @@
+
+<%= form_with url: "/score/save?id="+@id.to_s, method: :post,data:{turbo:false} do |form| %>
+    <%= form.label :query, "วิชาอิหยัง :#{@name}" %>
+    <%= form.label :query, "คะแนนเท่าใด :#{@score}" %>
+    <br>
+    <%= form.label :query, "เปลี่ยนวิชาเป็น?" %>
+    <%= form.text_field :subject, name:"name"%>
+    <br>
+    <%= form.label :query, "เปลี่ยนคะแนเป็น?" %>
+    <%= form.number_field :score, name:"score"%>
+    <br>
+    <%= form.submit "Save" %>
+
+  <% end %>
+  
+  <%= link_to 'Back', "/score/list" %>
