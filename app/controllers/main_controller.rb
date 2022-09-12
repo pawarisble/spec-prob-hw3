@@ -46,12 +46,23 @@ class MainController < ApplicationController
     end
 
     if(@MT_line.length() == 0 )
-      render plain: "MAX Subect :  " +@maxSub +"    Sum Score : " +@sumScore.to_s
+      redirect_to("/score/list")
     end
   end
 
   def list
     @allSubject = Subject.all
+    @maxScore = 0
+    @maxSub = ""
+    @sumScore = 0
+    @allSubject.each do |s| 
+      @sumScore += s.score.to_i
+      if(s.score.to_i > @maxScore)
+        @maxScore = s.score.to_i
+        @maxSub = s.name
+      end
+    end
+
   end
 
   def delete
