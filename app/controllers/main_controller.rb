@@ -53,8 +53,8 @@ class MainController < ApplicationController
 
   def list
     @allSubject = Subject.all
-    @maxScore = 0
-    @maxSub = "ไม่มีข้อมูลวิชาใดๆ"
+    @maxScore = -1
+    @maxSub = ""
     @sumScore = 0
     @allSubject.each do |s| 
       @sumScore += s.score.to_i
@@ -63,9 +63,7 @@ class MainController < ApplicationController
         @maxSub = s.name
       end
     end
-    if(@maxSub == "ไม่มีข้อมูลวิชาใดๆ")
-      @sumScore = "ไม่มีคะแนนด้วยจ้า"
-    end
+
 
   end
 
