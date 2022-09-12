@@ -21,6 +21,7 @@ class MainController < ApplicationController
     
     if(@MT_line.length() > 0 )
       redirect_to("/main/test/?amount=#{@subArray.length()}&emptyLine=#{@MT_line}")
+      return
     end
 
     @maxScore = @scoreArray[0].to_i
@@ -53,7 +54,7 @@ class MainController < ApplicationController
   def list
     @allSubject = Subject.all
     @maxScore = 0
-    @maxSub = ""
+    @maxSub = "ไม่มีข้อมูลวิชาใดๆ"
     @sumScore = 0
     @allSubject.each do |s| 
       @sumScore += s.score.to_i
@@ -61,6 +62,9 @@ class MainController < ApplicationController
         @maxScore = s.score.to_i
         @maxSub = s.name
       end
+    end
+    if(@maxSub == "ไม่มีข้อมูลวิชาใดๆ")
+      @sumScore = "ไม่มีคะแนนด้วยจ้า"
     end
 
   end
